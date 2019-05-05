@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ComponentFactoryResolver, ViewChild } from '@
 import { HolderDirective } from '../holder.directive';
 import { AdItem } from '../list-item'
 import { ListComponent } from '../list/list.component';
+import { DetailsComponent } from '../details/details.component';
 @Component({
   selector: 'app-split-layout',
   templateUrl: './split-layout.component.html',
@@ -9,15 +10,30 @@ import { ListComponent } from '../list/list.component';
 })
 export class SplitLayoutComponent implements OnInit {
   @Input() details;
+  //  classesMap = {
+  //   ListComponent: ListComponent,
+  //   DetailsComponent: DetailsComponent
+  // }
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
   @ViewChild(HolderDirective) appHolder;
+  public component1 : string;
+  public component2 : string;
   ngOnInit() {
-    this.loadComponent();
-    this.loadComponent();
-  }
-  loadComponent() {
+    console.log(this.details.widgets[1])
+    //https://stackoverflow.com/questions/15338610/dynamically-loading-a-typescript-class-reflection-for-typescript
+
+    //https://stackoverflow.com/questions/49168240/angular-5-instantiate-a-component-from-its-name-as-a-string
     
-    let adItem = new AdItem(ListComponent, "test");
+    // this.component1 = ((this.details.widgets[0].widget + "Component"));
+    // this.component2 = ((this.details.widgets[1].widget + "Component"));
+    // this.loadComponent(new (<any>this.classesMap)[this.component1]());
+    // this.loadComponent(new (<any>this.classesMap)[this.component2]());
+    this.loadComponent(ListComponent);
+    this.loadComponent(DetailsComponent);
+  } 
+  loadComponent(cmp) {
+   // console.log(cmp)
+    let adItem = new AdItem(cmp, "test");
 
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(adItem.component);
 

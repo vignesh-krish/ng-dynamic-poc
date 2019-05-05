@@ -9,6 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HolderDirective } from './holder.directive';
 import { SplitLayoutComponent } from './split-layout/split-layout.component';
 import { ListComponent } from './list/list.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -16,14 +17,16 @@ import { ListComponent } from './list/list.component';
     DynamicContainerComponent,
     HolderDirective,
     SplitLayoutComponent,
-    ListComponent
+    ListComponent,
+    DetailsComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  entryComponents: [ListComponent],
+  entryComponents: [ListComponent , DetailsComponent ],
   providers: [ DynamicLayoutResolverService],
   bootstrap: [AppComponent]
 })

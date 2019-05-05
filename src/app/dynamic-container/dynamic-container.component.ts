@@ -10,11 +10,13 @@ export class DynamicContainerComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private componentFactoryResolver: ComponentFactoryResolver) { }
   public data;
+  isSplitComponent;
   ngOnInit() {
     this.activatedRoute.data.subscribe(
       response => {
         this.data = response.dynamic;
-        console.log(this.data)
+        console.log(this.data);
+        this.isSplitComponent = this.data.name === 'split'
 
       }
     );

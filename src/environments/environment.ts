@@ -7,6 +7,16 @@ export const environment = {
 };
 
 /*
+
+https://stackblitz.com/edit/angular-resolver-demo?embed=1&file=app/user-resolver.service.ts
+
+https://denys.dev/2018-02-21/dynamic-routes-with-angular/
+
+https://gitlab.com/DenysVuika/medium-dynamic-routes/blob/master/src/app/app.component.ts
+
+dynamically construct route object angular 5
+
+
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *
